@@ -22,7 +22,7 @@ sudo wget https://github.com/containernetworking/plugins/releases/download/v1.1.
 sudo tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.1.1.tgz
 popd
 
-sudo agent 30000
+sudo agent 30000 &
 
 ## memory.memsw
 # sudo sed -i 's/GRUB_CMDLINE_LINUX="/GRUB_CMDLINE_LINUX="cgroup_enable=memory swapaccount=1,/' /etc/default/grub
