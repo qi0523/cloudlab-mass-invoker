@@ -6,7 +6,7 @@ import geni.portal as portal
 # Import the ProtoGENI library.
 import geni.rspec.pg as rspec
 
-IMAGE = "urn:publicid:IDN+cloudlab.umass.edu+image+containernetwork-PG0:ow-v0"
+IMAGE = "urn:publicid:IDN+cloudlab.umass.edu+image+containernetwork-PG0:mass-openwhisk"
 
 pc = portal.Context()
 
