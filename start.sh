@@ -67,6 +67,10 @@ send_ip_to_master() {
     exec 3<&-
 }
 
+set_ip_to_master_py(){
+    sudo python client.py $1
+}
+
 wait_join_k8s() {
     printf "%s: %s\n" "$(date +"%T.%N")" "nc pid is: $nc_PID"
     while true; do
@@ -99,7 +103,7 @@ wait_join_k8s() {
 setup_invoker() {
     # $1 == master ip
     #1. send host ip to master.
-    send_ip_to_master $1
+    set_ip_to_master_py $1
     #2. wait to join in k8s cluster.
     wait_join_k8s
 
