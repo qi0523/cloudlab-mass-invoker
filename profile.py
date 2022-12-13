@@ -54,10 +54,10 @@ pc.defineParameter("tempFileSystemSize",
 
 params = pc.bindParameters()
 
-request.setCollocateFactor(params.X)
-
 pc.verifyParameters()
 request = pc.makeRequestRSpec()
+
+request.setCollocateFactor(params.X)
 
 def create_node(name, nodes):
   # Create node
