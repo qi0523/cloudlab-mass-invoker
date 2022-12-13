@@ -10,6 +10,9 @@ IMAGE = "urn:publicid:IDN+cloudlab.umass.edu+image+containernetwork-PG0:mass-ope
 
 pc = portal.Context()
 
+pc.defineParameter("X", "Number of containers per physical node",
+                   portal.ParameterType.INTEGER, 20)
+
 pc.defineParameter("cores",
                    "Invoker cpu cores",
                    portal.ParameterType.INTEGER,
@@ -50,6 +53,8 @@ pc.defineParameter("tempFileSystemSize",
                    "temporary files. 0 GB indicates maximum size.")
 
 params = pc.bindParameters()
+
+request.setCollocateFactor(params.X)
 
 pc.verifyParameters()
 request = pc.makeRequestRSpec()
