@@ -68,7 +68,7 @@ send_ip_to_master() {
 }
 
 set_ip_to_master_py(){
-    sudo python client.py $1
+    sudo python /local/repository/client.py $1
 }
 
 wait_join_k8s() {
