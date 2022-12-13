@@ -63,7 +63,6 @@ send_ip_to_master() {
         exec 3<>/dev/tcp/$1/$MASTER_PORT
     done
     echo $HOST_ETH0_IP 1>&3
-    exec 3<&-
 }
 
 wait_join_k8s() {
@@ -93,6 +92,7 @@ wait_join_k8s() {
     # run command to join kubernetes cluster
     eval $MY_CMD
     printf "%s: %s\n" "$(date +"%T.%N")" "Done!"
+    exec 3<&-
 }
 
 setup_invoker() {
