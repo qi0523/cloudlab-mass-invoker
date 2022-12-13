@@ -5,6 +5,7 @@ number of nodes.
 import geni.portal as portal
 # Import the ProtoGENI library.
 import geni.rspec.pg as rspec
+import geni.rspec.emulab
 
 IMAGE = "urn:publicid:IDN+cloudlab.umass.edu+image+containernetwork-PG0:mass-openwhisk"
 
@@ -55,6 +56,7 @@ pc.defineParameter("tempFileSystemSize",
 params = pc.bindParameters()
 
 pc.verifyParameters()
+
 request = pc.makeRequestRSpec()
 
 request.setCollocateFactor(params.X)
