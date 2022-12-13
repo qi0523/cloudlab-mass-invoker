@@ -5,15 +5,14 @@
 import socket
 import sys
 
-def post_request():
-    ip = get_ip()
-    req = f"{ip}"
+def post_request(invoker_ip):
+    req = f"{invoker_ip}"
     return req
 
-def start_request(master_ip):
+def start_request(master_ip, invoker_ip):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((master_ip, 3000))
-    req = post_request()
+    req = post_request(invoker_ip)
     s.send(req.encode())
     buff = []
     while True:
@@ -27,21 +26,11 @@ def start_request(master_ip):
     print(data)
     s.close()
 
-
-
-def get_ip() -> str:
-    # 获取本机计算机名称
-    hostname = socket.gethostname()
-    # 获取本机ip
-    ip = socket.gethostbyname(hostname)
-    # print(ip)
-    return ip
-
-
 if __name__ == '__main__':
     # start_request()
     # input("press any key to exit;")
     # a = get_map()
     master_ip = sys.argv[1]
-    start_request(master_ip)
+    invoker_ip = sys.argv[2]
+    start_request(master_ip, invoker_ip)
     # print(a)
