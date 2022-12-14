@@ -12,7 +12,7 @@ IMAGE = "urn:publicid:IDN+cloudlab.umass.edu+image+containernetwork-PG0:mass-ope
 pc = portal.Context()
 
 pc.defineParameter("X", "Number of containers per physical node",
-                   portal.ParameterType.INTEGER, 20)
+                   portal.ParameterType.INTEGER, 16)
 
 pc.defineParameter("cores",
                    "Invoker cpu cores",
@@ -60,6 +60,8 @@ pc.verifyParameters()
 request = pc.makeRequestRSpec()
 
 request.setCollocateFactor(params.X)
+
+request.setPackingStrategy("pack")
 
 def create_node(name, nodes):
   # Create node

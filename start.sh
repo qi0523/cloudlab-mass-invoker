@@ -140,4 +140,10 @@ setup_invoker $1
 
 sudo wondershaper -a eth0 -d $2 -u $2
 
+sudo sed -i "17a evictionHard:" /var/lib/kubelet/config.yaml
+sudo sed -i '18a \  nodefs.available: "0%"' /var/lib/kubelet/config.yaml
+sudo sed -i '19a \  imagefs.available: "0%"' /var/lib/kubelet/config.yaml
+sudo sed -i "28a imageGCHighThresholdPercent: 100" /var/lib/kubelet/config.yaml
+sudo systemctl restart kubelet
+
 exit 0
