@@ -12,12 +12,12 @@ IMAGE = "urn:publicid:IDN+cloudlab.umass.edu+image+containernetwork-PG0:mass-ope
 pc = portal.Context()
 
 pc.defineParameter("X", "Number of containers per physical node",
-                   portal.ParameterType.INTEGER, 16)
+                   portal.ParameterType.INTEGER, 10)
 
 pc.defineParameter("cores",
                    "Invoker cpu cores",
                    portal.ParameterType.INTEGER,
-                   1,
+                   2,
                    longDescription="Invoker cpu cores.")
 
 pc.defineParameter("memory",
@@ -29,7 +29,7 @@ pc.defineParameter("memory",
 pc.defineParameter("bandwidth",
                    "Invoker bandwidth",
                    portal.ParameterType.INTEGER,
-                   512000,
+                   1024000,
                    longDescription="Invoker bandwidth.")
 
 pc.defineParameter("nodeCount", 
@@ -92,6 +92,5 @@ for i in range(params.nodeCount):
 
 for i, node in enumerate(nodes[0:]):
     node.addService(rspec.Execute(shell="bash", command="/local/repository/start.sh {} {} &".format(params.masterIP, params.bandwidth)))
-# ./start.sh masterip > /home/cloudlab-openwhisk/start.log 2>&1
-# bash ./st.sh 172.17.103.1 > /home/cloudlab-openwhisk/start.log 2>&1
+
 pc.printRequestRSpec()
