@@ -23,7 +23,7 @@ pc.defineParameter("cores",
 pc.defineParameter("memory",
                    "Invoker memory",
                    portal.ParameterType.INTEGER,
-                   5120,
+                   6144,
                    longDescription="Invoker memory.")
 
 pc.defineParameter("bandwidth",
