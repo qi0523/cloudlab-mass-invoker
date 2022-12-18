@@ -61,7 +61,7 @@ request = pc.makeRequestRSpec()
 
 request.setCollocateFactor(params.X)
 
-request.setPackingStrategy("pack")
+#request.setPackingStrategy("pack")
 
 def create_node(name, nodes):
   # Create node
