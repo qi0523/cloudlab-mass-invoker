@@ -72,6 +72,7 @@ def create_node(name, nodes):
   node.ram   = params.memory
 
   node.disk_image = IMAGE
+  node.setFailureAction("nonfatal")
   
   # Add extra storage space
   if (params.tempFileSystemSize > 0):
