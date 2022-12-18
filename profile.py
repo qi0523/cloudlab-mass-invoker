@@ -5,7 +5,6 @@ number of nodes.
 import geni.portal as portal
 # Import the ProtoGENI library.
 import geni.rspec.pg as rspec
-import geni.rspec.emulab
 
 IMAGE = "urn:publicid:IDN+cloudlab.umass.edu+image+containernetwork-PG0:mass-openwhisk"
 
@@ -59,9 +58,7 @@ pc.verifyParameters()
 
 request = pc.makeRequestRSpec()
 
-request.setCollocateFactor(params.X)
-
-#request.setPackingStrategy("pack")
+#request.setCollocateFactor(params.X)
 
 def create_node(name, nodes):
   # Create node
