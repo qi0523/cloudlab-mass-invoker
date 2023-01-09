@@ -20,9 +20,6 @@ sudo apt install -y apparmor apparmor-utils
 pushd $INSTALL_DIR/install
 sudo wget https://github.com/containernetworking/plugins/releases/download/v1.1.1/cni-plugins-linux-amd64-v1.1.1.tgz
 sudo tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.1.1.tgz
-
-sudo wget https://github.com/qi0523/distribution-agent/files/10229083/distribution-agent-1.1.1.tar.gz
-sudo tar Cxzvf /usr/local/bin distribution-agent-1.1.1.tar.gz
 popd
 
 sudo agent 30000 &
